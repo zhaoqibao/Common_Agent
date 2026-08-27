@@ -1,0 +1,12 @@
+langchain
+langchain_openai
+langgraph-cli
+colorama
+dotenv
+deepagents
+minio
+markitdown[all]
+pypandoc
+mcp
+langchain-mcp-adapters
+fastapi
