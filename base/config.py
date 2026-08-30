@@ -21,8 +21,8 @@ MINIO_PORT = os.getenv("MINIO_PORT")
 MINIO_ENDPOINT = f"{HOST_IP}:{MINIO_PORT}"
 MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS_KEY")
 MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY")
-
 MINIO_BUCKET = 'common-agent'
+
 USER_UPLOAD_DIR = 'user_upload'
 GENERATE_IMAGE_PATH = 'generate_images'
 

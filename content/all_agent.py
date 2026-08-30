@@ -49,7 +49,7 @@ class AllAgent():
 
     def _get_middles(self):
         middles = [FileManagerMiddleware(), wait_rate_limit, MinioMiddle(), ExcuteMiddleware()]
-        middles.append(my_skill_middle.MySkillsMiddleware(backend=mybackend.backend_factory, sources=[cfg.SKILL_DIR_PATH]))
+        # middles.append(my_skill_middle.MySkillsMiddleware(backend=mybackend.backend_factory, sources=[cfg.SKILL_DIR_PATH]))
         return middles
 
 

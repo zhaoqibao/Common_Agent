@@ -16,7 +16,8 @@ dependencies = [
     "markitdown[all]>=0.1.5",
     "mcp>=1.29.0",
     "minio>=7.2.20",
-    "pypandoc>=1.17",
+    "pypandoc-binary>=1.17",
+    "pypandoc[tinytex]>=1.17",
 ]
 
 [[tool.uv.index]]
