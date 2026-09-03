@@ -1,9 +1,7 @@
 # 尝试用fastapi去写服务接口, 学习用，其中大量伪代码
-
-
 import fastapi
 from pydantic import BaseModel
-from all_agent import agent
+from agent import agent
 from fastapi import WebSocket, WebSocketDisconnect
 import json
 from langchain_core.load import dumpd  # 或者 dumps

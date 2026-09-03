@@ -32,5 +32,7 @@ WAIT_RATE_LIMIT_RETRY = 3 # 重试次数
 TAVILY_SEARCH_KEY = os.getenv('TAVILY_SEARCH_KEY')
 USE_EXCEL =  True if os.getenv("USE_EXCEL") and os.getenv("USE_EXCEL") == 'true' else False
 USE_PPT =  True if os.getenv("USE_PPT") and os.getenv("USE_PPT") == 'true' else False
+if USE_PPT:
+    PPT_MCP_URL = os.getenv("PPT_MCP_URL") if os.getenv("PPT_MCP_URL") else "http://localhost:4810/mcp"
 
 SKILL_DIR_PATH = 'skills'

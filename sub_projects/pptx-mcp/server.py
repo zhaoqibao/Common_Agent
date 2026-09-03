@@ -674,7 +674,8 @@ async def get_slide_content_description(filename: str, slide_index: str) -> str:
         if shape.has_text_frame and shape.text.strip():
              # Truncate long text for brevity
             text_preview = (shape.text[:75] + '...') if len(shape.text) > 75 else shape.text
-            desc += f", Text='{text_preview.replace(chr(11), ' ').replace('\n', ' ')}'" # Replace VT and newlines for single line desc
+            clean_text = text_preview.replace(chr(11), ' ').replace('\n', ' ')
+            desc += f", Text='{clean_text}'" # Replace VT and newlines for single line desc
 
         description += desc + "\n"
 
