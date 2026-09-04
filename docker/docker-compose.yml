@@ -84,6 +84,12 @@ services:
       PPT_MCP_URL: http://ppt-mcp:4810/mcp
       DATABASE_URI: postgres://postgres:postgres@postgres:5432/postgres
       REDIS_URI: redis://:redis123@redis:6379
+      # 端口改成你本机 VPN/Clash 的 HTTP 代理端口
+      HTTP_PROXY: "http://host.docker.internal:7897"
+      HTTPS_PROXY: "http://host.docker.internal:7897"
+      ALL_PROXY: "http://host.docker.internal:7897"
+      # 内网服务不要走代理
+      NO_PROXY: "localhost,127.0.0.1,postgres,redis,minio,allagent-network"
     depends_on:
       postgres:
         condition: service_healthy
