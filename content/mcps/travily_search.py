@@ -13,5 +13,4 @@ def get_tools():
             }
         },
     )
-    tools = asyncio.run(client.get_tools())
-    return tools
+    return asyncio.run(client.get_tools())

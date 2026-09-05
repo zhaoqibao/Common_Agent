@@ -27,10 +27,18 @@ def change_file_path(path):
     # 提示：会用到这两个函数
     root_dir = get_thread_dir()
     path = os.path.normpath(path) # 规范化这个路径本身
-    if root_dir in path: # 如果路径本身就包含了根目录，则直接返回
-        return path
-    if os.path.isabs( path): # 判断路径是否是绝对路径
-        path = os.path.relpath(path, start='/') # 获取相对路径
+    abs_root = os.path.abspath(root_dir)
+    abs_path = os.path.abspath(path)
+    # 只要路径位于线程根目录下（带盘符 D:\agent_files\... 或不带盘符 \agent_files\... 都算），
+    # 统一转成带盘符的绝对路径。否则在 Python 3.13+ 或 uvx 子进程（如 excel-mcp-server 的 Python 3.14）
+    # 里，\agent_files\... 会被 os.path.isabs() 判为非绝对路径而报错。
+    if abs_path == abs_root or abs_path.startswith(abs_root + os.sep):
+        return abs_path
+    if os.path.isabs(path): # 判断路径是否是绝对路径
+        try:
+            path = os.path.relpath(path, start='/') # 获取相对路径
+        except ValueError:
+            return os.path.normpath(path) # 跨盘符的绝对路径（如 C:\xxx）无法转相对路径，原样返回
     return os.path.normpath(os.path.join(root_dir, path)) # 与真正的工作目录路径拼接
 
 

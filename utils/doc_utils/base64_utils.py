@@ -16,7 +16,7 @@ def base64_to_file(base64_str, output_path):
 
 def image_to_data_url(file_path):
     """将图片转换为data URL"""
-    format = file_path.split('.')[-1]
+    format = file_path.split('.')[-1].lower()  # 转小写，避免 .PNG/.JPG 生成非法的大写 MIME
     base64_str = file_to_base64(file_path)
     data_url = f"data:image/{format};base64,{base64_str}"
     return data_url

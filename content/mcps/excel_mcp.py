@@ -12,7 +12,11 @@ def get_tools():
             }
         },
     )
-    return asyncio.run(client.get_tools())
+    # return asyncio.run(client.get_tools())
+    async def get_tools(self):
+        # 去掉 asyncio.run，直接 await
+        return await client.get_tools()
+
 
 
 if __name__ == "__main__":
